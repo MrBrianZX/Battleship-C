@@ -11,7 +11,7 @@ void clearTerminal()
 void setTerminalCoord(uint8_t x, uint8_t y)
 {
     char escape_seq[16];
-    uint8_t size = snprintf(escape_seq, sizeof(escape_seq), "\x1B[%d;%dH", y, x);
+    snprintf(escape_seq, sizeof(escape_seq), "\x1B[%d;%dH", y, x);
     printf("%s", escape_seq);
 }
 
@@ -25,14 +25,14 @@ void setTerminalCoord11()
 void setTerminalBackgroundColor(uint8_t color)
 {
     char color_code[16];
-    uint8_t size = snprintf(color_code, sizeof(color_code), "\x1B[48;5;%dm", color);
+    snprintf(color_code, sizeof(color_code), "\x1B[48;5;%dm", color);
     printf("%s", color_code);
 }
 
 void setTerminalTextColor(uint8_t color)
 {
     char color_code[16];
-    uint8_t size = snprintf(color_code, sizeof(color_code), "\x1B[38;5;%dm", color);
+    snprintf(color_code, sizeof(color_code), "\x1B[38;5;%dm", color);
     printf("%s", color_code);
 }
 
